@@ -11,12 +11,8 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class PieChart extends View {
-//	FrameLayout container;
-//	ImageView pie;
-	
 	private DataAdapter<?> adapter;
-	
-	LayerDrawable pie;
+	private LayerDrawable pie;
 	
 	public PieChart(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -52,6 +48,7 @@ public class PieChart extends View {
 	public void refresh(){
 		this.invalidate();
 		if(this.adapter==null) return;
+		
 		List<PieData> list = new ArrayList<PieData>();		
 		float total = buildData(list);
 		Drawable[] portions = buildPortions(list, total);
